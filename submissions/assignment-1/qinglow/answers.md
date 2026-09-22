@@ -1,0 +1,8 @@
+ANSWER_1: The course portal account failed to read the file because it received a Permission Denied error.
+ANSWER_2: The octal equivalent of -rw------- symbolic commands is 600. The first digit stands for the owner which is 6, it permits the owner to read and write while the second digit stands for the group and the third digit is for others, both does not have any permission to access the  file. The course portal account can not access the file because it is only a member of the group as seen whenls -l /etc/course-portal/portal.conf command was executed to confirm the file's groupand $ id course-portal command to confirm the user's group.
+ANSWER_3: 640
+ANSWER_3_WHY: 640 is the most appropriate answer. the other four option has its own flaws. 400 only lets the owner read the while while the group and others has no capability to access the file.755 on the otherhand,lets the owner read, write and execute, however both group and others also let them not only readbut also execute changes which is not a role of a group member, and others should not be able to access the file. 777 lets the three of them read, write, and execute which makes everyone even not part of the group make changes to the file hence making it risky, supposedly the owner should only have the capability to do so.
+ANSWER_4_ORDER: B, G, E, D, F, A, I, C, H
+ANSWER_5: Let anyone make changes on the portal configuration
+ANSWER_6: The course portal logs is being shown
+ANSWER_7_BRIDGE: component=access control, detect=alert and log monitoring, recover=automated yet documented remediation action, proof=a live check that a real user request succeeds
