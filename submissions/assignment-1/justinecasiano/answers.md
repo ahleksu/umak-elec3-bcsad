@@ -1,0 +1,8 @@
+ANSWER_1: The course portal application failed to start or run because it cannot read /etc/course-portal/portal.conf due to a "Permission denied" error.
+ANSWER_2: The file has permission mode 600 (-rw-------), which grants read and write access to the owner (root), but zero access (---) to the group (course-portal) and zero access (---) to others, because the application service runs as the course-portal user who is only a member of the course-portal group and not the owner (root), it is blocked by the group permission bits.
+ANSWER_3: 640
+ANSWER_3_WHY: 400 removes root write access and still gives zero access to the group; 755 and 777 give unnecessary execute permissions and grant global read/write access to others, violating the principle of least privilege, whereas 640 grants exactly the required read access to the group (course-portal) while preserving root write access and keeping others locked out.
+ANSWER_4_ORDER: B, G, E, D, F, A, I, C, H
+ANSWER_5: Any user or compromised process on the system can read, modify, overwrite, or corrupt the configuration file, and execute permissions are unnecessarily granted.
+ANSWER_6: The application logs no longer report permission errors on startup/reload, and an HTTP request to the portal endpoint returns a 200 OK status with the expected webpage content.
+ANSWER_7_BRIDGE: component=configuration management, detect=automated health checks or log monitoring, recover=automated permission correction or rollback, proof=successful end-to-end synthetic user HTTP requests
