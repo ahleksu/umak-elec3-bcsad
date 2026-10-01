@@ -1,0 +1,10 @@
+# Team Contribution Log
+
+|Lab Section|Driver|Navigator|Recorder|Reviewer|
+|-|-|-|-|-|
+|Part A \& B|A12345573|A62346092|K12152912|K12150373|
+|Part C|A12345573|A62346092|K12152912|K12150373|
+|Part D \& E|A12345573|A62346092|K12152912|K12150373|
+
+
+

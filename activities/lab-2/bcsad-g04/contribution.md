@@ -1,0 +1,10 @@
+# Team Contribution Log
+
+|Lab Section|Driver|Navigator|Recorder|Reviewer|
+|-|-|-|-|-|
+|Step 1 \& 2|A12345573|A62346092|K12152912|K12150373|
+|Step 3 \& 4|A12345573|A62346092|K12152912|K12150373|
+|Step 5 to 7|A12345573|A62346092|K12152912|K12150373|
+
+
+
