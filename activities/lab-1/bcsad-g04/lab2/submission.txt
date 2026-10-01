@@ -1,0 +1,29 @@
+
+# Lab 2 Submission
+
+## Instance Details
+- **Instance 1 ID:** i-09058d910869f0fd1
+- **Instance 1 Availability Zone:** ap-southeast-1a
+- **Instance 2 ID:** i-0c627062120fbd7c3
+- **Instance 2 Availability Zone:** ap-southeast-1b
+
+## Part F Questions
+
+1. **Why did the group stop at 2 instances?**
+   The Auto Scaling Group stopped scaling at 2 instances because the Maximum capacity parameter was explicitly defined as 2 during Step 3. Auto Scaling policies will never breach the hard boundaries set by Minimum and Maximum capacity, regardless of how high the CPU load rises.
+
+2. **Why did terminating an instance by hand not remove the cost?**
+   Terminating an instance manually triggered the Auto Scaling Group's self-healing mechanism. Because the ASG was configured with a Desired/Minimum capacity of 2 at that moment, it immediately detected that the active count dropped below target and automatically launched a replacement instance, continuing to incur compute costs.
+
+3. **Why is the target value set to your assigned value (e.g., 30–85 percent) instead of 99 percent?**
+   Setting a target value at 99% would leave no headroom for unexpected traffic spikes while new instances are launching and warming up (which takes several minutes). Setting lower target thresholds (e.g., 30%–85%) allows the ASG to trigger scale-out events early enough so that capacity comes online before existing instances become overwhelmed or crash from 100% resource exhaustion.
+
+4. **What did the automatic cutoff protect us from?**
+   The automatic cutoff protects against runaway cloud expenditure and unnecessary resource usage by ensuring that forgotten or orphaned lab infrastructure is terminated automatically if left running unattended.
+
+5. **What changes when a load balancer sits in front of the group?**
+   With an Application Load Balancer (ALB) in front of the group:
+   - Users access a single DNS entry point rather than having to manually track and navigate to individual public IP addresses.
+   - Incoming HTTP traffic is automatically distributed evenly across all InService instances across different Availability Zones.
+   - The instances can be placed in private subnets without public IPs, significantly improving security.
+   - The ASG can perform ALB health checks (e.g., monitoring HTTP endpoint response codes) rather than relying solely on basic EC2 hardware status checks.
