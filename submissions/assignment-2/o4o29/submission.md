@@ -81,7 +81,7 @@ State of the internet gateway:
 
 What happens to the default subnets if the gateway is detached?
 
-- If the gateway is detached, the route 0.0.0.0/0 has no working target, so the subnets lose their path to the internet. The instances can still reach each other because the local route connects the subnets within the VPC.
+- If the internet gateway is detached, the 0.0.0.0/0 route can no longer provide internet access to the instance. However, an instance can still communicate with another instance in the VPC because the 172.31.0.0/16 local route remains available.
 
 ### A7. NAT gateways
 
@@ -146,7 +146,7 @@ Route table of the private subnet:
 
 Tool used (Excalidraw, draw.io, Lucidchart, or paper):
 
-<answer>
+- Excalidraw
 
 Save your diagram as `vpc-diagram.png` in your folder. The image line below shows it.
 
@@ -156,20 +156,22 @@ Save your diagram as `vpc-diagram.png` in your folder. The image line below show
 
 Can you still open the web page from your laptop? Why?
 
-<answer>
+- No, because the 0.0.0.0/0 route to the internet gateway was removed. The instance may still have a public IPv4 address, but it needs this route for internet traffic to reach it and return.
 
 Can the instance still reach another instance in the VPC? Why?
 
-<answer>
+- Yes. The 172.31.0.0/16 local route from A4 is still available, so traffic between instances in the same VPC can stay within the VPC instead of passing through the internet gateway.
 
 ### B5. Place a database
 
 Which subnet gets the database? Why?
 
-<answer>
+- I would place the database in the private subnet (10.190.1.0/24) because it does not have a direct route to the internet gateway. Resources within the VPC can still access the database through the VPC's internal network, while the database is not directly exposed to the internet.
 
 ### B6. My question about VPCs
 
 What is your question, and what made you think of it?
 
-<answer>
+- Question: What happens to the reply traffic when a private server sends a request through a NAT gateway, and how does the NAT gateway know which server should receive the response?
+
+- What made me think of it: I noticed that the class account does not have a NAT gateway, so I only learned its basic purpose from the activity. This made me curious about how the return traffic is handled when multiple private servers use the same NAT gateway.
