@@ -124,8 +124,8 @@ Which resources can send traffic to an instance that uses it?
 
 ### B1. Plan two subnets
 
-- Public subnet CIDR: <answer>
-- Private subnet CIDR: <answer>
+- Public subnet CIDR: 10.190.0.0/24
+- Private subnet CIDR: 10.190.1.0/24
 
 ### B2. Route tables
 
@@ -133,14 +133,14 @@ Route table of the public subnet:
 
 | Destination | Target |
 | --- | --- |
-| <answer> | <answer> |
-| <answer> | <answer> |
+| 10.190.0.0/16 | local |
+| 0.0.0.0/0 | internet gateway |
 
 Route table of the private subnet:
 
 | Destination | Target |
 | --- | --- |
-| <answer> | <answer> |
+| 10.190.0.0/16 | local |
 
 ### B3. My VPC diagram
 
