@@ -1,134 +1,298 @@
 # Assignment #2: Explore a VPC
 
-## Part A: Explore the Default VPC
+## About me
 
-## 1. Default VPC Details
-
-| Item | Answer |
-|---|---|
-| VPC ID | vpc-02b29f02cd658307 |
-| State | Available |
-| IPv4 CIDR | 172.31.0.0/16 |
-| IPv6 CIDR | None |
-| Tenancy | Default |
-| Default VPC | Yes |
-| Owner ID | 548387266019 |
+- GitHub username: marionnn10
+- IAM user name that I signed in with: Lab group IAM user
+- AWS Region: Singapore (ap-southeast-1)
 
 ---
 
-## 2. Subnets
+# Part A. Explore
 
-The default VPC contains three default subnets located in different Availability Zones.
+## A1. The VPC
 
-| Subnet ID | Availability Zone | IPv4 CIDR |
-|---|---|---|
-| subnet-00a19af925fdd4d | ap-southeast-1a | 172.31.32.0/20 |
-| subnet-03a5209dd3590f3f5 | ap-southeast-1b | 172.31.16.0/20 |
-| subnet-09c3dc46f64c311d1 | ap-southeast-1c | 172.31.0.0/20 |
+Default VPC IPv4 CIDR:
+
+`172.31.0.0/16`
+
+Number of addresses in that CIDR:
+
+65,536
+
+VPC ID:
+
+`vpc-02b29f02cd658307`
+
+State:
+
+Available
+
+Tenancy:
+
+Default
+
+Owner ID:
+
+`548387266019`
 
 ---
 
-## 3. Internet Gateway
+## A2. The Subnets
 
-| Item | Answer |
+The default VPC contains three default subnets.
+
+| Availability Zone | IPv4 CIDR |
 |---|---|
-| Internet Gateway ID | igw-0943e7e688293168 |
-| State | Attached |
-| Attached VPC | vpc-02b29f02cd658307 |
+| `ap-southeast-1a` | `172.31.32.0/20` |
+| `ap-southeast-1b` | `172.31.16.0/20` |
+| `ap-southeast-1c` | `172.31.0.0/20` |
 
-The Internet Gateway allows communication between VPC resources and the Internet.
+Subnet IDs:
+
+| Subnet ID | Availability Zone |
+|---|---|
+| `subnet-00a19af925fdd4d` | ap-southeast-1a |
+| `subnet-03a5209dd3590f3f5` | ap-southeast-1b |
+| `subnet-09c3dc46f64c311d1` | ap-southeast-1c |
 
 ---
 
-## 4. Route Table
+## A3. Available IPv4 Addresses
 
-| Item | Answer |
-|---|---|
-| Route Table ID | rtb-037b142ea7ed8c1c9 |
-| Main Route Table | Yes |
-| VPC ID | vpc-02b29f02cd658307 |
+A `/20` subnet contains 4,096 IPv4 addresses.
+
+AWS reserves 5 IP addresses in every subnet.
+
+Therefore:
+
+4,096 - 5 = 4,091 available IPv4 addresses.
+
+The number can become lower when AWS resources use addresses inside the subnet.
+
+---
+
+## A4. The Route Table
+
+Route Table ID:
+
+`rtb-037b142ea7ed8c1c9`
+
+VPC:
+
+`vpc-02b29f02cd658307`
 
 Routes:
 
 | Destination | Target |
 |---|---|
-| 172.31.0.0/16 | local |
-| 0.0.0.0/0 | igw-0943e7e688293168 |
+| `172.31.0.0/16` | `local` |
+| `0.0.0.0/0` | `igw-0943e7e688293168` |
+
+The local route allows communication between resources inside the VPC.
+
+The `0.0.0.0/0` route sends Internet traffic to the Internet Gateway.
 
 ---
 
-## 5. Security Group
+## A5. Public or Private Subnets
 
-Security Group Name:
+Are the default subnets public or private?
 
-default
+The default subnets are public.
+
+Which route proves it?
+
+The route:
+
+```
+0.0.0.0/0 → igw-0943e7e688293168
+```
+
+proves that the subnets have a route to the Internet Gateway.
+
+---
+
+## A6. The Internet Gateway
+
+Internet Gateway ID:
+
+`igw-0943e7e688293168`
+
+State:
+
+Attached
+
+Attached VPC:
+
+`vpc-02b29f02cd658307`
+
+What happens if the Internet Gateway is detached?
+
+The default subnets lose their route to the Internet.
+
+However, resources can still communicate inside the VPC because the local route remains available.
+
+---
+
+## A7. NAT Gateways
+
+Number of NAT gateways:
+
+0
+
+Can a server in a new private subnet download updates? Why?
+
+No.
+
+A private subnet cannot access the Internet without a NAT Gateway.
+
+The private subnet needs a route:
+
+```
+0.0.0.0/0 → NAT Gateway
+```
+
+to allow outbound Internet access while preventing direct inbound Internet access.
+
+---
+
+## A8. The Network ACL
+
+Network ACL ID:
+
+`acl-05e0f593c4c567477`
+
+Associated VPC:
+
+`vpc-02b29f02cd658307`
+
+Default:
+
+Yes
+
+Inbound Rules:
+
+| Rule Number | Type | Source | Allow/Deny |
+|---|---|---|---|
+| 100 | All traffic | `0.0.0.0/0` | Allow |
+| * | All traffic | `0.0.0.0/0` | Deny |
+
+How is a Network ACL different from a Security Group?
+
+A Network ACL protects a whole subnet, while a Security Group protects individual resources such as EC2 instances.
+
+A Network ACL is stateless, meaning inbound and outbound rules are evaluated separately.
+
+A Security Group is stateful, meaning return traffic is automatically allowed.
+
+A Network ACL can deny traffic, while Security Groups only allow traffic.
+
+---
+
+## A9. The Default Security Group
+
+Security Group:
+
+`default`
 
 VPC:
 
-vpc-02b29f02cd658307
+`vpc-02b29f02cd658307`
 
-Inbound Rules:
-- Allows traffic from resources using the same security group.
+Inbound rule:
 
-Outbound Rules:
-- Allows all outbound traffic.
+All traffic from the same security group.
+
+Which resources can send traffic to an instance that uses it?
+
+Only resources that also use the same default security group can send inbound traffic.
 
 ---
 
-# Part B: Proposed Small VPC Design
+# Part B. Prepare
 
-## Network Configuration
+## B1. Plan Two Subnets
 
 VPC CIDR:
 
-10.0.0.0/16
+`10.0.0.0/16`
 
+Public subnet CIDR:
 
-Public Subnet:
+`10.0.1.0/24`
 
-10.0.1.0/24
+Private subnet CIDR:
 
+`10.0.2.0/24`
 
-Private Subnet:
+---
 
-10.0.2.0/24
+## B2. Route Tables
 
+Public subnet route table:
 
-## Components
+| Destination | Target |
+|---|---|
+| `10.0.0.0/16` | `local` |
+| `0.0.0.0/0` | Internet Gateway |
 
-### Internet Gateway
+Private subnet route table:
 
-Provides Internet access for public resources.
+| Destination | Target |
+|---|---|
+| `10.0.0.0/16` | `local` |
 
+---
 
-### Public Subnet
+## B3. My VPC Diagram
 
-Contains the EC2 Web Server because it requires Internet access.
+Tool used:
 
+Excalidraw
 
-### Private Subnet
+![B3: My VPC Diagram](vpc-diagram.png)
 
-Contains the database server to protect internal resources.
+---
 
+## B4. Predict a Change
 
-### Route Table
+Can you still open the web page from your laptop? Why?
 
-Routes:
+Yes.
 
+The public subnet has a route:
+
+```
 0.0.0.0/0 → Internet Gateway
+```
 
+which allows Internet communication.
 
-### Security Groups
+Can the instance still reach another instance in the VPC? Why?
 
-EC2 Security Group:
-- HTTP Port 80
-- HTTPS Port 443
-- SSH Port 22
+Yes.
 
+The local route allows communication between resources inside the VPC.
 
-Database Security Group:
-- MySQL Port 3306
-- Allows access only from the web server.
+---
 
+## B5. Place a Database
 
-The proposed VPC separates public and private resources to improve security and network management.
+Which subnet gets the database? Why?
+
+The database should be placed in the private subnet:
+
+`10.0.2.0/24`
+
+The private subnet does not have a route to the Internet Gateway, preventing direct Internet access.
+
+---
+
+## B6. My Question About VPCs
+
+What is your question, and what made you think of it?
+
+Can two VPCs in the same AWS account communicate with each other securely?
+
+I thought of this because multiple VPCs can exist inside one AWS account, and some applications may require communication between separate networks.
