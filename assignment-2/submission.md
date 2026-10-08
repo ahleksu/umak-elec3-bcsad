@@ -296,3 +296,21 @@ What is your question, and what made you think of it?
 Can two VPCs in the same AWS account communicate with each other securely?
 
 I thought of this because multiple VPCs can exist inside one AWS account, and some applications may require communication between separate networks.
+
+---
+
+# Evidence / Screenshots
+
+## Screenshot 1: Subnets
+
+![Screenshot 1 - Subnets](screenshot-1-subnets.png)
+
+
+## Screenshot 2: Routes
+
+![Screenshot 2 - Routes](screenshot-2-routes.png)
+
+
+## Screenshot 3: Network ACL
+
+![Screenshot 3 - Network ACL](screenshot-3-network-acl.png)
