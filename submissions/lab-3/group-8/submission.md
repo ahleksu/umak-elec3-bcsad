@@ -12,8 +12,8 @@ How to use this template:
 ## About us
 
 - Group number: <8>
-- Section: <IV-BCSAD>
-- Client: <An esports tournament platform>
+- Section: IV-BCSAD
+- Client: An esports tournament platform
 - VPC CIDR: <10.175.128.0/17>
 
 ## Task 1. Equal subnets
@@ -61,16 +61,16 @@ usable = 10.175.244.4 to 10.175.247.254>
 
 | Subnet | Prefix | CIDR | Availability Zone | Usable |
 | --- | --- | --- | --- | --- |
-| private-a | </19> | <10.175.128.0/19> | <ap-southeast-1a> | <8,187> |
-| private-b | </19> | <10.175.160.0/19> | <ap-southeast-1b> | <8,187> |
-| public-a | </21> | <10.175.192.0/21> | <ap-southeast-1a> | <2,043> |
-| public-b | </21> | <10.175.200.0/21> | <ap-southeast-1b> | <2,043> |
+| private-a | </19> | <10.175.128.0/19> | ap-southeast-1a | <8,187> |
+| private-b | </19> | <10.175.160.0/19> | ap-southeast-1b | <8,187> |
+| public-a | </21> | <10.175.192.0/21> | ap-southeast-1a | <2,043> |
+| public-b | </21> | <10.175.200.0/21> | ap-southeast-1b | <2,043> |
 
 ## Task 4. Proposed subnets
 
 | # | Proposal | Valid or not valid | Why |
 | --- | --- | --- | --- |
-| P1 | <10.175.234.47/21> | <Not valid> | <It does not start on a valid /21 network boundary. The aligned /21 block contain> |
-| P2 | <10.175.248.0/21> | <valid> | <It is inside the VPC, correctly aligned, uses an allowed prefix between /16 and /28, and does not overlap any Task 3 subnet.> |
-| P3 | <10.175.176.0/20> | <Not valid> | <It overlaps private-b, 10.175.160.0/19, which covers 10.175.160.0 through 10.175.191.255.> |
-| P4 | <10.175.224.0/30> | <not valid> | <The /30 prefix is outside the allowed prefix range of /16 through /28.> |
+| P1 | <10.175.234.47/21> | Not valid | <It does not start on a valid /21 network boundary. The aligned /21 block contain> |
+| P2 | <10.175.248.0/21> | Valid | <It is inside the VPC, correctly aligned, uses an allowed prefix between /16 and /28, and does not overlap any Task 3 subnet.> |
+| P3 | <10.175.176.0/20> | Not valid | <It overlaps private-b, 10.175.160.0/19, which covers 10.175.160.0 through 10.175.191.255.> |
+| P4 | <10.175.224.0/30> | Not valid | <The /30 prefix is outside the allowed prefix range of /16 through /28.> |
