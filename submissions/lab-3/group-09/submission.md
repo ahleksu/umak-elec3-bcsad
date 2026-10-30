@@ -20,16 +20,16 @@ How to use this template:
 
 New prefix: /21
 
-| # | CIDR | First | Last | Usable | First usable | Last usable |
-| --- | --- | --- | --- | --- | --- | --- |
-| 1 | 10.9.0.0/21 | 10.9.0.0 | 10.9.7.255 | 2,043 | 10.9.0.4 | 10.9.7.254 |
-| 2 | 10.9.8.0/21 | 10.9.8.0 | 10.9.15.255 | 2,043 | 10.9.8.4 | 10.9.15.254 |
-| 3 | 10.9.16.0/21 | 10.9.16.0 | 10.9.23.255 | 2,043 | 10.9.16.4 | 10.9.23.254 |
-| 4 | 10.9.24.0/21 | 10.9.24.0 | 10.9.31.255 | 2,043 | 10.9.24.4 | 10.9.31.254 |
-| 5 | 10.9.32.0/21 | 10.9.32.0 | 10.9.39.255 | 2,043 | 10.9.32.4 | 10.9.39.254 |
-| 6 | 10.9.40.0/21 | 10.9.40.0 | 10.9.47.255 | 2,043 | 10.9.40.4 | 10.9.47.254 |
-| 7 | 10.9.48.0/21 | 10.9.48.0 | 10.9.55.255 | 2,043 | 10.9.48.4 | 10.9.55.254 |
-| 8 | 10.9.56.0/21 | 10.9.56.0 | 10.9.63.255 | 2,043 | 10.9.56.4 | 10.9.63.254 |
+| # | CIDR         | First      | Last        | Usable | First usable | Last usable  |
+| - | ------------ | ---------- | ----------- | ------ | ------------ | ------------ |
+| 1 | 10.9.0.0/21  | 10.9.0.0   | 10.9.7.255  | 2,043  | 10.9.0.4     | 10.9.7.254   |
+| 2 | 10.9.8.0/21  | 10.9.8.0   | 10.9.15.255 | 2,043  | 10.9.8.4     | 10.9.15.254  |
+| 3 | 10.9.16.0/21 | 10.9.16.0  | 10.9.23.255 | 2,043  | 10.9.16.4    | 10.9.23.254  |
+| 4 | 10.9.24.0/21 | 10.9.24.0  | 10.9.31.255 | 2,043  | 10.9.24.4    | 10.9.31.254  |
+| 5 | 10.9.32.0/21 | 10.9.32.0  | 10.9.39.255 | 2,043  | 10.9.32.4    | 10.9.39.254  |
+| 6 | 10.9.40.0/21 | 10.9.40.0  | 10.9.47.255 | 2,043  | 10.9.40.4    | 10.9.47.254  |
+| 7 | 10.9.48.0/21 | 10.9.48.0  | 10.9.55.255 | 2,043  | 10.9.48.4    | 10.9.55.254  |
+| 8 | 10.9.56.0/21 | 10.9.56.0  | 10.9.63.255 | 2,043  | 10.9.56.4    | 10.9.63.254  |
 
 Reserved addresses of subnet 1: 10.9.0.0, 10.9.0.1, 10.9.0.2, 10.9.0.3, 10.9.7.255
 
@@ -64,18 +64,18 @@ usable = 10.9.56.4 to 10.9.59.254
 
 ## Task 3. Subnets from host counts
 
-| Subnet | Prefix | CIDR | Availability Zone | Usable |
-| --- | --- | --- | --- | --- |
-| private-a | /22 | 10.9.0.0/22 | ap-southeast-1a | 1,019 |
-| private-b | /22 | 10.9.4.0/22 | ap-southeast-1b | 1,019 |
-| public-a | /23 | 10.9.8.0/23 | ap-southeast-1a | 507 |
-| public-b | /23 | 10.9.10.0/23 | ap-southeast-1b | 507 |
+| Subnet    | Prefix | CIDR         | Availability Zone | Usable |
+| --------- | ------ | ------------ | ----------------- | ------ |
+| private-a | /22    | 10.9.0.0/22  | ap-southeast-1a   | 1,019  |
+| private-b | /22    | 10.9.4.0/22  | ap-southeast-1b   | 1,019  |
+| public-a  | /23    | 10.9.8.0/23  | ap-southeast-1a   | 507    |
+| public-b  | /23    | 10.9.10.0/23 | ap-southeast-1b   | 507    |
 
 ## Task 4. Proposed subnets
 
-| # | Proposal | Valid or not valid | Why |
-| --- | --- | --- | --- |
-| P1 | 10.9.64.0/20 | Not valid | It is outside the VPC, which ends at 10.9.63.255. |
-| P2 | 10.9.36.0/29 | Not valid | A /29 is smaller than /28, the smallest subnet that AWS allows. |
-| P3 | 10.9.48.0/23 | Valid | It is inside the VPC, starts on a step, is between /16 and /28, and overlaps none of our Task 3 subnets. |
-| P4 | 10.9.18.46/23 | Not valid | It does not start on a step for a /23. The valid block that holds the address is 10.9.18.0/23. |
+| #  | Proposal      | Valid or not valid | Why                                                                                                      |
+| -- | ------------- | ------------------ | -------------------------------------------------------------------------------------------------------- |
+| P1 | 10.9.64.0/20  | Not valid          | It is outside the VPC, which ends at 10.9.63.255.                                                        |
+| P2 | 10.9.36.0/29  | Not valid          | A /29 is smaller than /28, the smallest subnet that AWS allows.                                          |
+| P3 | 10.9.48.0/23  | Valid              | It is inside the VPC, starts on a step, is between /16 and /28, and overlaps none of our Task 3 subnets. |
+| P4 | 10.9.18.46/23 | Not valid          | It does not start on a step for a /23. The valid block that holds the address is 10.9.18.0/23.          |
