@@ -76,6 +76,8 @@
       height: 5px;
       background: linear-gradient(90deg, var(--accent), var(--accent-2));
     }
+    .member { display: flex; flex-direction: column; }
+    .member .aws { margin-top: auto; }
     .member:nth-child(2) { animation-delay: 0.08s; }
     .member:nth-child(3) { animation-delay: 0.16s; }
     .member:nth-child(4) { animation-delay: 0.24s; }
@@ -97,7 +99,7 @@
     }
     .avatar img { width: 100%; height: 100%; object-fit: cover; }
     .member h2 { margin: 0 0 10px; font-size: 1.3rem; font-weight: 700; }
-    .member .bio { margin: 0 0 14px; color: var(--muted); line-height: 1.6; }
+    .member .bio { min-height: 3.2em; margin: 0 0 14px; color: var(--muted); line-height: 1.6; }
     .ri { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; vertical-align: -3px; margin-right: 6px; }
     .ri.big { display: block; width: 32px; height: 32px; margin: 0 auto 10px; }
     .member .role { margin: 0 0 16px; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.08em; color: var(--accent); }
@@ -191,14 +193,14 @@
       <section class="member">
         <div class="avatar"><img src="https://github.com/samthology.png?size=240" alt="S" onerror="this.replaceWith(this.alt)"></div>
         <h2>Sam</h2>
-        <p class="bio">Keeps the group on schedule.</p>
-        <p class="role"><svg class="ri" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg>PROJECT LEAD</p>
+        <p class="bio">Keeps us on schedule and tests every link.</p>
+        <p class="role"><svg class="ri" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>PROJECT LEAD / QA</p>
         <div class="social">
           <a href="https://github.com/samthology" aria-label="Sam on GitHub" title="GitHub"><svg><use href="#icon-github"></use></svg></a>
         </div>
-        <a class="aws" href="https://aws.amazon.com/lambda/">
-          <svg aria-hidden="true"><use href="#aws-lambda"></use></svg>
-          <span><small>Favorite AWS service</small><strong>AWS Lambda</strong></span>
+        <a class="aws" href="https://aws.amazon.com/cloudwatch/">
+          <svg aria-hidden="true"><use href="#aws-cloudwatch"></use></svg>
+          <span><small>Favorite AWS service</small><strong>Amazon CloudWatch</strong></span>
         </a>
       </section>
 
@@ -206,10 +208,24 @@
       <section class="member">
         <div class="avatar"><img src="https://github.com/gihyunx.png?size=240" alt="G" onerror="this.replaceWith(this.alt)"></div>
         <h2>Gio</h2>
-        <p class="bio">Learning how Amazon S3 serves a website.</p>
-        <p class="role"><svg class="ri" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg>CLOUD ENGINEER</p>
+        <p class="bio">Builds the code that powers our page.</p>
+        <p class="role"><svg class="ri" viewBox="0 0 24 24" aria-hidden="true"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>LEAD DEVELOPER</p>
         <div class="social">
           <a href="https://github.com/gihyunx" aria-label="Gio on GitHub" title="GitHub"><svg><use href="#icon-github"></use></svg></a>
+        </div>
+        <a class="aws" href="https://aws.amazon.com/lambda/">
+          <svg aria-hidden="true"><use href="#aws-lambda"></use></svg>
+          <span><small>Favorite AWS service</small><strong>AWS Lambda</strong></span>
+        </a>
+      </section>
+
+      <section class="member">
+        <div class="avatar"><img src="https://github.com/samjoshuadud.png?size=240" alt="C" onerror="this.replaceWith(this.alt)"></div>
+        <h2>Caleb</h2>
+        <p class="bio">Gets our page online with Amazon S3.</p>
+        <p class="role"><svg class="ri" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg>CLOUD ENGINEER</p>
+        <div class="social">
+          <a href="https://github.com/samjoshuadud" aria-label="Caleb on GitHub" title="GitHub"><svg><use href="#icon-github"></use></svg></a>
         </div>
         <a class="aws" href="https://aws.amazon.com/s3/">
           <svg aria-hidden="true"><use href="#aws-s3"></use></svg>
@@ -218,30 +234,16 @@
       </section>
 
       <section class="member">
-        <div class="avatar"><img src="https://github.com/samjoshuadud.png?size=240" alt="C" onerror="this.replaceWith(this.alt)"></div>
-        <h2>Caleb</h2>
-        <p class="bio">Tests every link before the group submits.</p>
-        <p class="role"><svg class="ri" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>QA TESTER</p>
-        <div class="social">
-          <a href="https://github.com/samjoshuadud" aria-label="Caleb on GitHub" title="GitHub"><svg><use href="#icon-github"></use></svg></a>
-        </div>
-        <a class="aws" href="https://aws.amazon.com/ec2/">
-          <svg aria-hidden="true"><use href="#aws-ec2"></use></svg>
-          <span><small>Favorite AWS service</small><strong>Amazon EC2</strong></span>
-        </a>
-      </section>
-
-      <section class="member">
         <div class="avatar"><img src="https://github.com/pruvk.png?size=240" alt="A" onerror="this.replaceWith(this.alt)"></div>
         <h2>Aaron</h2>
-        <p class="bio">Likes clean layouts and fast pages.</p>
-        <p class="role"><svg class="ri" viewBox="0 0 24 24" aria-hidden="true"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>FRONTEND DEVELOPER</p>
+        <p class="bio">Makes the page look good, colors to layout.</p>
+        <p class="role"><svg class="ri" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="M2 2l7.6 7.6"/><circle cx="11" cy="11" r="2"/></svg>DESIGNER</p>
         <div class="social">
           <a href="https://github.com/pruvk" aria-label="Aaron on GitHub" title="GitHub"><svg><use href="#icon-github"></use></svg></a>
         </div>
-        <a class="aws" href="https://aws.amazon.com/dynamodb/">
-          <svg aria-hidden="true"><use href="#aws-dynamodb"></use></svg>
-          <span><small>Favorite AWS service</small><strong>Amazon DynamoDB</strong></span>
+        <a class="aws" href="https://aws.amazon.com/cloudfront/">
+          <svg aria-hidden="true"><use href="#aws-cloudfront"></use></svg>
+          <span><small>Favorite AWS service</small><strong>Amazon CloudFront</strong></span>
         </a>
       </section>
     </div>
