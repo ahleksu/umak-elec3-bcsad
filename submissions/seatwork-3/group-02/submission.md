@@ -1,22 +1,12 @@
 # Seatwork 3 Submission
 
-<!--
-How to use this template:
-
-1. Copy this file to submissions/seatwork-3/group-<number>/submission.md
-2. Replace every <answer> with your group's answer. Delete the angle brackets too.
-3. Save hosting.png, policy.png, and site.png in the same folder.
-4. Crop the AWS console top bar out of hosting.png and policy.png.
-5. Write GitHub usernames, not full names or student numbers.
--->
-
 ## About us
 
-- Group number: <answer>
-- Section: <answer>
-- Group IAM user: <answer>
-- Bucket name: <answer>
-- Website endpoint: <answer>
+- Group number: `group-02`
+- Section: `IV-BCSAD`
+- Group IAM user: `bcsad-g02`
+- Bucket name: `umak-elec3-bcsad-g02-linktree`
+- Website endpoint: http://umak-elec3-bcsad-g02-linktree.s3-website-ap-southeast-1.amazonaws.com
 
 ## Screenshots
 
@@ -30,6 +20,7 @@ How to use this template:
 
 | GitHub username | What this groupmate did |
 | --- | --- |
-| <answer> | <answer> |
-| <answer> | <answer> |
-| <answer> | <answer> |
+| [justinecasiano](https://github.com/justinecasiano) | Created the S3 bucket in ap-southeast-1 with the required naming format and uploaded the Seatwork 2 index.html file. |
+| [ExalaJohn](https://github.com/ExalaJohn) | Enabled static website hosting in bucket properties, configured index.html as the index document, and verified the generated endpoint. |
+| [ShiftRedux](https://github.com/ShiftRedux) | Disabled Block Public Access for the website bucket and configured the public-read bucket policy allowing s3:GetObject. |
+| [KennethTejam](https://github.com/KennethTejam) | Tested the live HTTP website endpoint in a browser, captured and cropped the required verification screenshots, and documented the submission. |
