@@ -70,7 +70,7 @@ The first invocation was a cold start, so Lambda had to initialize the execution
 
 | GitHub username | What this groupmate did                                               |
 | --------------- | --------------------------------------------------------------------- |
-| gihyun          | Manage repository and initiate the AWS Lambda function setup.         |
+| gihyunx         | Manage repository and initiate the AWS Lambda function setup.         |
 | samthology      | Distributed tasks and validated document answers and screenshots.     |
 | samjoshuadud    | Assisted in Navigating the AWS console during task execution.         |
 | pruvk           | Validated the AWS configuration is correct based on the instructions. |
