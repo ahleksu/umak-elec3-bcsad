@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Group 07 Links | ELEC3 Cloud Computing</title>
+  <style>
+    :root {
+      --bg: #070913;
+      --card-bg: rgba(21, 26, 40, 0.65);
+      --card-border: rgba(139, 92, 246, 0.25);
+      --text: #f1f5f9;
+      --muted: #94a3b8;
+      --accent: #a78bfa;
+      --accent-glow: rgba(167, 139, 250, 0.4);
+      --ring: #7c3aed;
+      --avatar-bg: rgba(30, 27, 75, 0.8);
+    }
+    * { box-sizing: border-box; }
+    
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: var(--bg);
+      background-image: 
+        radial-gradient(circle at 10% 20%, rgba(109, 40, 217, 0.15) 0%, transparent 40%),
+        radial-gradient(circle at 90% 80%, rgba(139, 92, 246, 0.15) 0%, transparent 40%),
+        linear-gradient(135deg, #070913 0%, #0f0c1b 100%);
+      color: var(--text);
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+      padding: 60px 20px;
+      position: relative;
+      overflow-x: hidden;
+    }
+    body::before, body::after {
+      content: '';
+      position: absolute;
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      background: rgba(139, 92, 246, 0.08);
+      filter: blur(80px);
+      z-index: -1;
+      animation: floatOrbs 10s ease-in-out infinite alternate;
+    }
+    body::after {
+      top: 60%;
+      right: 10%;
+      animation-delay: -5s;
+    }
+    @keyframes floatOrbs {
+      0% { transform: translateY(0) scale(1); }
+      100% { transform: translateY(-40px) scale(1.1); }
+    }
+
+    main { max-width: 1100px; margin: 0 auto; }
+    
+    header { text-align: center; margin-bottom: 50px; }
+    header .badge {
+      display: inline-block;
+      padding: 6px 16px;
+      background: rgba(139, 92, 246, 0.1);
+      border: 1px solid rgba(139, 92, 246, 0.3);
+      border-radius: 20px;
+      color: #c4b5fd;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+      box-shadow: 0 0 20px rgba(139, 92, 246, 0.15);
+    }
+    header h1 { 
+      margin: 0 0 10px; 
+      color: #fff; 
+      font-size: 3rem; 
+      font-weight: 800; 
+      letter-spacing: -0.02em;
+      text-shadow: 0 0 30px rgba(167, 139, 250, 0.5);
+    }
+    header p { margin: 0; color: var(--muted); font-size: 1.1rem; }
+
+    .members {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 24px;
+    }
+
+    .member {
+      background: var(--card-bg);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-radius: 16px;
+      border: 1px solid var(--card-border);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+      padding: 32px 24px;
+      text-align: center;
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .member::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--accent), transparent);
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+
+    .member:hover {
+      transform: translateY(-8px) scale(1.02);
+      border-color: rgba(167, 139, 250, 0.6);
+      box-shadow: 0 20px 40px rgba(109, 40, 217, 0.3), 0 0 25px rgba(139, 92, 246, 0.2);
+    }
+    .member:hover::before { opacity: 1; }
+
+    .avatar {
+      width: 110px;
+      height: 110px;
+      margin: 0 auto 20px;
+      border-radius: 50%;
+      border: 3px solid var(--ring);
+      background: var(--avatar-bg);
+      color: var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.4rem;
+      font-weight: 800;
+      box-shadow: 0 0 20px rgba(124, 58, 237, 0.4), inset 0 0 15px rgba(0, 0, 0, 0.6);
+      position: relative;
+    }
+    .avatar img { width: 100%; height: 100%; object-fit: cover; }
+
+    .member h2 { margin: 0 0 8px; font-size: 1.4rem; font-weight: 700; color: #fff; }
+    .member .role { 
+      display: inline-block;
+      margin: 0 0 14px; 
+      font-size: 0.75rem; 
+      font-weight: 700; 
+      letter-spacing: 0.08em; 
+      color: #c4b5fd;
+      background: rgba(139, 92, 246, 0.12);
+      padding: 4px 10px;
+      border-radius: 6px;
+    }
+    .member .bio { margin: 0 0 20px; color: var(--muted); font-style: italic; line-height: 1.5; font-size: 0.9rem; }
+    
+    .social { display: flex; justify-content: center; gap: 12px; margin-bottom: 20px; }
+    .social a {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text);
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      transition: all 0.3s ease;
+    }
+    .social a:hover { 
+      border-color: var(--accent); 
+      color: #fff; 
+      background: var(--ring); 
+      transform: translateY(-2px);
+      box-shadow: 0 0 15px var(--accent-glow); 
+    }
+    .social svg { width: 18px; height: 18px; fill: currentColor; }
+
+    .aws {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px;
+      border-radius: 12px;
+      background: rgba(15, 23, 42, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      color: var(--text);
+      text-decoration: none;
+      text-align: left;
+      transition: all 0.3s ease;
+    }
+    .aws:hover { 
+      background: rgba(30, 41, 59, 0.8);
+      border-color: rgba(167, 139, 250, 0.4);
+      box-shadow: 0 0 15px rgba(139, 92, 246, 0.2);
+    }
+    .aws svg { width: 38px; height: 38px; flex-shrink: 0; border-radius: 8px; }
+    .aws small { display: block; color: var(--muted); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.05em; }
+    .aws strong { font-size: 0.9rem; color: #fff; }
+
+    footer { text-align: center; color: var(--muted); font-size: 0.85rem; margin-top: 50px; letter-spacing: 0.02em; }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <div class="badge">Cloud Engineering Team</div>
+      <h1>Meet Group 07</h1>
+      <p>IV-BCSAD · ELEC3 Cloud Computing</p>
+    </header>
+
+    <div class="members">
+      
+      <!-- Rose's Card -->
+      <section class="member">
+        <div class="avatar">R</div>
+        <h2>Rose</h2>
+        <div class="role">PROJECT MANAGER</div>
+        <p class="bio">Ensuring system logic integrity and tracking deliverables.</p>
+        <div class="social">
+          <a href="https://github.com/o4o29" aria-label="Rose on GitHub" title="GitHub"><svg><use href="#icon-github"></use></svg></a>
+          <a href="https://www.linkedin.com/in/rose-ann-etang-3665a7438/" aria-label="Rose on LinkedIn" title="LinkedIn"><svg><use href="#icon-linkedin"></use></svg></a>
+        </div>
+        <a class="aws" href="https://aws.amazon.com/ec2/autoscaling/">
+          <svg aria-hidden="true"><use href="#aws-auto-scaling"></use></svg>
+          <span><small>Favorite AWS service</small><strong>Amazon EC2 Auto Scaling</strong></span>
+        </a>
+      </section>
+
+      <!-- Avejane's Card -->
+      <section class="member">
+        <div class="avatar">A</div>
+        <h2>Avejane</h2>
+        <div class="role">SYSTEM ANALYST / QA</div>
+        <p class="bio">Designing system architecture and managing APIs.</p>
+        <div class="social">
+          <a href="https://github.com/abijeyn" aria-label="Avejane on GitHub" title="GitHub"><svg><use href="#icon-github"></use></svg></a>
+          <a href="https://www.linkedin.com/in/maria-avejane-feliciano-737662448/" aria-label="Avejane on LinkedIn" title="LinkedIn"><svg><use href="#icon-linkedin"></use></svg></a>
+        </div>
+        <a class="aws" href="https://aws.amazon.com/api-gateway/">
+          <svg aria-hidden="true"><use href="#aws-api-gateway"></use></svg>
+          <span><small>Favorite AWS service</small><strong>Amazon API Gateway</strong></span>
+        </a>
+      </section>
+
+      <!-- Christian's Card -->
+      <section class="member">
+        <div class="avatar">C</div>
+        <h2>Christian</h2>
+        <div class="role">SECURITY LEAD</div>
+        <p class="bio">Securing cloud resources and managing access permissions.</p>
+        <div class="social">
+          <a href="https://github.com/StarMirai" aria-label="Christian on GitHub" title="GitHub"><svg><use href="#icon-github"></use></svg></a>
+          <a href="https://www.linkedin.com/in/christian-estrella-669652448/" aria-label="Christian on LinkedIn" title="LinkedIn"><svg><use href="#icon-linkedin"></use></svg></a>
+        </div>
+        <a class="aws" href="https://aws.amazon.com/iam/">
+          <svg aria-hidden="true"><use href="#aws-iam"></use></svg>
+          <span><small>Favorite AWS service</small><strong>AWS IAM</strong></span>
+        </a>
+      </section>
+
+      <!-- Dan's Card -->
+      <section class="member">
+        <div class="avatar">D</div>
+        <h2>Dan</h2>
+        <div class="role">CLOUD ARCHITECT</div>
+        <p class="bio">Building secure, isolated cloud networking environments.</p>
+        <div class="social">
+          <a href="https://github.com/Dan-Ike" aria-label="Dan on GitHub" title="GitHub"><svg><use href="#icon-github"></use></svg></a>
+          <a href="https://www.linkedin.com/in/dan-ike-kresler-estoque-ab4466448/" aria-label="Dan on LinkedIn" title="LinkedIn"><svg><use href="#icon-linkedin"></use></svg></a>
+        </div>
+        <a class="aws" href="https://aws.amazon.com/vpc/">
+          <svg aria-hidden="true"><use href="#aws-vpc"></use></svg>
+          <span><small>Favorite AWS service</small><strong>Amazon VPC</strong></span>
+        </a>
+      </section>
+    </div>
+
+    <footer>Hosted on Amazon S3 static website hosting · Seatwork 3</footer>
+  </main>
+
+  <!-- Icon Library -->
+  <svg width="0" height="0" style="position: absolute" aria-hidden="true">
+    <symbol id="icon-github" viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></symbol>
+    <symbol id="icon-linkedin" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></symbol>
+    <symbol id="aws-api-gateway" viewBox="0 0 64 64"><g><g><rect width="64" height="64" fill="#8C4FFF"/></g><g><path fill-rule="evenodd" clip-rule="evenodd" d="M28 43.9999H31V41.9999H28V43.9999ZM33 43.9999H36V41.9999H33V43.9999ZM28 21.9998H31V19.9998H28V21.9998ZM33 21.9998H36V19.9998H33V21.9998ZM22 12.7408L12 18.5738V46.382L22 51.382V12.7408ZM24 19.9998H26V21.9998H24V41.9999H26V43.9999H24V53C24 53.347 23.82 53.668 23.525 53.851C23.365 53.95 23.183 54 23 54C22.847 54 22.694 53.965 22.553 53.895L10.553 47.895C10.214 47.725 10 47.379 10 47V17.9998C10 17.6448 10.188 17.3148 10.496 17.1358L22.496 10.1358C22.805 9.95575 23.188 9.95475 23.498 10.1328C23.809 10.3108 24 10.6418 24 10.9998V19.9998ZM52 18.5738L42 12.7408V51.382L52 46.382V18.5738ZM54 17.9998V47C54 47.379 53.786 47.725 53.447 47.895L41.447 53.895C41.306 53.965 41.153 54 41 54C40.817 54 40.635 53.95 40.475 53.851C40.18 53.668 40 53.347 40 53V43.9999H38V41.9999H40V21.9998H38V19.9998H40V10.9998C40 10.6418 40.191 10.3108 40.502 10.1328C40.812 9.95575 41.195 9.95575 41.504 10.1358L53.504 17.1358C53.812 17.3148 54 17.6448 54 17.9998ZM34.939 27.3419L33.061 26.6578L29.061 37.6579L30.939 38.3419L34.939 27.3419ZM39.707 32.7069C40.098 32.3159 40.098 31.6839 39.707 31.2929L36.707 28.2929L35.293 29.7069L37.586 31.9999L35.293 34.2929L36.707 35.7069L39.707 32.7069ZM27.293 35.7069L24.293 32.7069C23.902 32.3159 23.902 31.6839 24.293 31.2929L27.293 28.2929L28.707 29.7069L26.414 31.9999L28.707 34.2929L27.293 35.7069Z" fill="white"/></g></g></symbol>
+    <symbol id="aws-auto-scaling" viewBox="0 0 64 64"><g stroke="none" fill="none" fill-rule="evenodd"><g fill="#ED7100"><rect x="0" y="0" width="64" height="64"></rect></g><path d="M54,31.4308059 L46.6003289,31.4308059 L49.9101791,28.1201749 L48.4889437,26.6986042 L42.7527412,32.43616 L48.4889437,38.1737158 L49.9101791,36.7521451 L46.6003289,33.4415141 L54,33.4415141 L54,31.4308059 Z M14.0898209,28.1201749 L17.3996711,31.4308059 L10,31.4308059 L10,33.4415141 L17.3996711,33.4415141 L14.0898209,36.7521451 L15.5110563,38.1737158 L21.2472588,32.43616 L15.5110563,26.6986042 L14.0898209,28.1201749 Z M25.8567251,39.4736387 L37.9181287,39.4736387 L37.9181287,27.4093895 L25.8567251,27.4093895 L25.8567251,39.4736387 Z M39.9283626,26.4040354 L41.9385965,26.4040354 L41.9385965,28.4147436 L39.9283626,28.4147436 L39.9283626,30.4254518 L41.9385965,30.4254518 L41.9385965,32.43616 L39.9283626,32.43616 L39.9283626,34.4468682 L41.9385965,34.4468682 L41.9385965,36.4575764 L39.9283626,36.4575764 L39.9283626,38.4682846 L41.9385965,38.4682846 L41.9385965,40.4789928 L39.9283626,40.4789928 L39.9283626,39.7842931 C39.9283626,40.7222885 39.1654788,41.4843469 38.2297149,41.4843469 L38.9232456,41.4843469 L38.9232456,43.4950551 L36.9130117,43.4950551 L36.9130117,41.4843469 L34.9027778,41.4843469 L34.9027778,43.4950551 L32.8925439,43.4950551 L32.8925439,41.4843469 L30.8823099,41.4843469 L30.8823099,43.4950551 L28.872076,43.4950551 L28.872076,41.4843469 L26.8618421,41.4843469 L26.8618421,43.4950551 L24.8516082,43.4950551 L24.8516082,41.4843469 L25.5451389,41.4843469 C24.609375,41.4843469 23.8464912,40.7222885 23.8464912,39.7842931 L23.8464912,40.4789928 L21.8362573,40.4789928 L21.8362573,38.4682846 L23.8464912,38.4682846 L23.8464912,36.4575764 L21.8362573,36.4575764 L21.8362573,34.4468682 L23.8464912,34.4468682 L23.8464912,32.43616 L21.8362573,32.43616 L21.8362573,30.4254518 L23.8464912,30.4254518 L23.8464912,28.4147436 L21.8362573,28.4147436 L21.8362573,26.4040354 L23.8464912,26.4040354 L23.8464912,27.0987351 C23.8464912,26.1607398 24.609375,25.3986813 25.5451389,25.3986813 L24.8516082,25.3986813 L24.8516082,23.3879732 L26.8618421,23.3879732 L26.8618421,25.3986813 L28.872076,25.3986813 L28.872076,23.3879732 L30.8823099,23.3879732 L30.8823099,25.3986813 L32.8925439,25.3986813 L32.8925439,23.3879732 L34.9027778,23.3879732 L34.9027778,25.3986813 L36.9130117,25.3986813 L36.9130117,23.3879732 L38.9232456,23.3879732 L38.9232456,25.3986813 L38.2297149,25.3986813 C39.1654788,25.3986813 39.9283626,26.1607398 39.9283626,27.0987351 L39.9283626,26.4040354 Z M32.8925439,50.1515045 L32.8925439,44.5004092 L30.8823099,44.5004092 L30.8823099,50.1515045 L27.281981,46.5503262 L25.8607456,47.9718968 L31.8874269,54 L37.9141082,47.9718968 L36.4928728,46.5503262 L32.8925439,50.1515045 Z M27.204587,17.3870146 L25.9381396,15.8246943 L31.8874269,11 L37.8367142,15.8246943 L36.5702668,17.3870146 L32.8925439,14.404129 L32.8925439,21.377265 L30.8823099,21.377265 L30.8823099,14.404129 L27.204587,17.3870146 Z" fill="#FFFFFF"></path></g></symbol>
+    <symbol id="aws-iam" viewBox="0 0 64 64"><g stroke="none" fill="none" fill-rule="evenodd"><g fill="#DD344C"><rect x="0" y="0" width="64" height="64"></rect></g><path d="M12,47 L52,47 L52,18 L12,18 L12,47 Z M54,17 L54,48 C54,48.552 53.553,49 53,49 L11,49 C10.447,49 10,48.552 10,48 L10,17 C10,16.448 10.447,16 11,16 L53,16 C53.553,16 54,16.448 54,17 L54,17 Z M35,39 L47,39 L47,37 L35,37 L35,39 Z M45,35 L49,35 L49,33 L45,33 L45,35 Z M35,35 L41,35 L41,33 L35,33 L35,35 Z M22.5,37.5 C22.5,37.776 22.725,38 23,38 C23.275,38 23.5,37.776 23.5,37.5 C23.5,37.224 23.275,37 23,37 C22.725,37 22.5,37.224 22.5,37.5 L22.5,37.5 Z M25.5,37.5 C25.5,38.522 24.882,39.401 24,39.788 L24,42 L22,42 L22,39.788 C21.118,39.401 20.5,38.522 20.5,37.5 C20.5,36.122 21.621,35 23,35 C24.379,35 25.5,36.122 25.5,37.5 L25.5,37.5 Z M16,42.995 L29.995,43 L29.996,41 L27,41 L27,39 L29.997,39 L29.998,37 L27,37 L27,35 L29.999,35 L30,33.005 L16.005,33 L16,42.995 Z M18,31.001 L28.001,31.004 L28.002,26 C28.002,24.976 27.2,24.273 26.722,23.945 C25.847,23.345 24.174,23 23.002,23 L23,23 C20.873,23 18.003,24.232 18.002,26 L18,31.001 Z M14.293,44.701 C14.105,44.513 14,44.259 14,43.994 L14.005,32 C14.005,31.447 14.453,31 15.005,31 L16,31 L16.002,26 C16.003,22.911 19.876,21 23,21 L23.002,21 C24.567,21 26.653,21.473 27.854,22.295 C29.239,23.246 30.003,24.562 30.002,26 L30.001,31.005 L31,31.006 C31.266,31.006 31.52,31.111 31.707,31.299 C31.895,31.487 32,31.741 32,32.006 L31.995,44 C31.995,44.553 31.547,45 30.995,45 L15,
