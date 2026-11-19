@@ -30,7 +30,7 @@ Asia Pacific (Singapore), 1 million requests a month: 800,000 GET and 200,000 PO
 | --- | --- | --- |
 | Amazon EC2 | 1 `t3.micro`, Linux, On-Demand, 100% utilization, 8 GB gp3, detailed monitoring on | 12.51 |
 
-Share link of our estimate: [PASTE_YOUR_AWS_CALCULATOR_SHARE_LINK_HERE]
+Share link of our estimate: https://calculator.aws/#/estimate?id=22684ebbac06199aaa349fe33983b5b37c1f0fb2
 
 ## Question
 
