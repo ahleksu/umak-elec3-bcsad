@@ -40,15 +40,16 @@ Why does the second REPORT line have no Init Duration?
 
 The first run was a cold start, so AWS Lambda had to initialize a new execution environment, start the Python 3.13 runtime, and load the handler code (recorded as Init Duration). Lambda keeps that execution environment warm for subsequent invocations, so the second run reused it without repeating initialization.
 
-Screenshots
+## Screenshots
 Code tab with our deployed handler - code.png 
-
 Test result with Executing function: succeeded test.png
-
 The two REPORT lines in CloudWatch - report.png
 
-Contribution
-GitHub username	What this groupmate did
-leksxee	- Created the Lambda function and configured the execution role
-angeluuhh- Deployed the handler code, ran the test event twice, and captured screenshots
-ctrl-amed/jajaalbaladejo27-sys - Retrieved the CloudWatch REPORT lines, completed submission.md, and opened the PR
+
+## Contribution
+
+| GitHub username | What this groupmate did |
+| --- | --- |
+| leksxee | Created the Lambda function and configured the execution role |
+| angeluuhh | Deployed the handler code, ran the test event twice, and captured screenshots |
+| ctrl-amed/jajaalbaladejo27-sys | Retrieved the CloudWatch REPORT lines, completed submission.md, and opened the PR |
