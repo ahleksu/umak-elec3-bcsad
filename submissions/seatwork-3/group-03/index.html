@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Group 3 Links | ELEC3 Cloud Computing</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f6f7fd;
+      --text: #1f2347;
+      --muted: #5d6385;
+      --glass: rgba(255, 255, 255, 0.72);
+      --glass-edge: rgba(255, 255, 255, 0.95);
+      --g1: linear-gradient(135deg, #6366f1, #a855f7);
+      --g2: linear-gradient(135deg, #ec4899, #f97316);
+      --g3: linear-gradient(135deg, #06b6d4, #10b981);
+      --glow1: rgba(99, 102, 241, 0.28);
+      --glow2: rgba(236, 72, 153, 0.28);
+      --glow3: rgba(6, 182, 212, 0.28);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: var(--text);
+      font-family: "DM Sans", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+      line-height: 1.55;
+      padding: 64px 20px 48px;
+      background-color: var(--bg);
+      background-image:
+        radial-gradient(40rem 30rem at 8% 0%, #dcd7ff 0%, transparent 60%),
+        radial-gradient(36rem 28rem at 95% 10%, #ffd9ec 0%, transparent 60%),
+        radial-gradient(40rem 30rem at 80% 100%, #c9f0ff 0%, transparent 60%),
+        radial-gradient(34rem 26rem at 0% 95%, #ffe9c7 0%, transparent 60%);
+      background-attachment: fixed;
+    }
+    main { max-width: 1040px; margin: 0 auto; }
+    header { text-align: center; margin-bottom: 56px; }
+    header h1 {
+      margin: 0 0 14px;
+      font-family: "Sora", "DM Sans", system-ui, sans-serif;
+      font-size: clamp(2.5rem, 8vw, 4.2rem);
+      font-weight: 800;
+      line-height: 1.05;
+      letter-spacing: -0.035em;
+      background: linear-gradient(90deg, #4f46e5, #c026d3 50%, #f97316);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    header p { margin: 0; color: var(--muted); font-size: 1.05rem; font-weight: 500; }
+    .members {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 28px;
+    }
+    .member {
+      --g: var(--g1);
+      --glow: var(--glow1);
+      background: var(--glass);
+      -webkit-backdrop-filter: blur(14px);
+      backdrop-filter: blur(14px);
+      border: 1px solid var(--glass-edge);
+      border-radius: 28px;
+      box-shadow: 0 18px 40px -12px var(--glow), 0 2px 6px rgba(31, 35, 71, 0.05);
+      padding: 32px 24px 24px;
+      text-align: center;
+    }
+    .member:nth-child(2) { --g: var(--g2); --glow: var(--glow2); }
+    .member:nth-child(3) { --g: var(--g3); --glow: var(--glow3); }
+    .avatar {
+      width: 112px;
+      height: 112px;
+      margin: 0 auto 20px;
+      border-radius: 50%;
+      background: var(--g);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: "Sora", sans-serif;
+      font-size: 2.6rem;
+      font-weight: 700;
+      border: 5px solid #fff;
+      box-shadow: 0 10px 24px -6px var(--glow);
+      overflow: hidden;
+    }
+    .avatar img { width: 100%; height: 100%; object-fit: cover; }
+    .member h2 {
+      margin: 0 0 8px;
+      font-family: "Sora", "DM Sans", sans-serif;
+      font-size: 1.35rem;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+    }
+    .member .role {
+      display: inline-block;
+      margin: 0 0 14px;
+      padding: 4px 14px;
+      border-radius: 999px;
+      background: var(--g);
+      color: #fff;
+      font-weight: 700;
+      font-size: 0.85rem;
+    }
+    .member .bio { margin: 0 0 22px; color: var(--muted); }
+    .social { display: flex; justify-content: center; gap: 12px; margin-bottom: 22px; }
+    .social a {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text);
+      background: #fff;
+      box-shadow: 0 4px 12px rgba(31, 35, 71, 0.1);
+      transition: background 0.15s, color 0.15s, transform 0.15s;
+    }
+    .social a:hover { background: var(--g); color: #fff; transform: translateY(-2px); }
+    .social svg { width: 20px; height: 20px; fill: currentColor; }
+    a:focus-visible { outline: 3px solid #6366f1; outline-offset: 3px; }
+    .aws {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 14px;
+      border-radius: 18px;
+      background: #fff;
+      color: var(--text);
+      text-decoration: none;
+      text-align: left;
+      box-shadow: 0 4px 12px rgba(31, 35, 71, 0.08);
+      transition: transform 0.15s, box-shadow 0.15s;
+    }
+    .aws:hover { transform: translateY(-2px); box-shadow: 0 10px 20px -6px var(--glow); }
+    .aws svg { width: 40px; height: 40px; flex-shrink: 0; border-radius: 10px; }
+    .aws small { display: block; color: var(--muted); font-size: 0.78rem; }
+    .aws strong { font-size: 0.98rem; }
+    footer { text-align: center; color: var(--muted); font-size: 0.9rem; margin-top: 56px; }
+    @media (prefers-reduced-motion: reduce) {
+      .social a, .aws { transition: none; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <h1>Meet Group 3</h1>
+      <p>IV-BCSAD, ELEC3 Cloud Computing</p>
+    </header>
+
+    <div class="members">
+      <section class="member">
+        <div class="avatar">C</div>
+        <h2>Charles Mendoza</h2>
+        <p class="role">Cloud engineer</p>
+        <p class="bio">Interested in cloud computing and web development.</p>
+        <div class="social">
+          <a href="https://github.com/shmoke4u" aria-label="Charles on GitHub" title="GitHub"><svg><use href="#icon-github"></use></svg></a>
+          <a href="https://www.linkedin.com/" aria-label="Charles on LinkedIn" title="LinkedIn"><svg><use href="#icon-linkedin"></use></svg></a>
+        </div>
+        <a class="aws" href="https://aws.amazon.com/s3/">
+          <svg aria-hidden="true"><use href="#aws-s3"></use></svg>
+          <span><small>Favorite AWS service</small><strong>Amazon S3</strong></span>
+        </a>
+      </section>
+
+      <section class="member">
+        <div class="avatar">S</div>
+        <h2>Shaine Bambico</h2>
+        <p class="role">Frontend developer</p>
+        <p class="bio">Likes clean layouts and fast pages that are easy to use.</p>
+        <div class="social">
+          <a href="https://github.com/JHnsu" aria-label="Shaine on GitHub" title="GitHub"><svg><use href="#icon-github"></use></svg></a>
+          <a href="https://www.linkedin.com/" aria-label="Shaine on LinkedIn" title="LinkedIn"><svg><use href="#icon-linkedin"></use></svg></a>
+        </div>
+        <a class="aws" href="https://aws.amazon.com/lambda/">
+          <svg aria-hidden="true"><use href="#aws-lambda"></use></svg>
+          <span><small>Favorite AWS service</small><strong>AWS Lambda</strong></span>
+        </a>
+      </section>
+
+      <section class="member">
+        <div class="avatar">M</div>
+        <h2>Mike Linan</h2>
+        <p class="role">Project lead</p>
+        <p class="bio">Keeps the group on schedule and organized.</p>
+        <div class="social">
+          <a href="https://github.com/kdotvalentino" aria-label="Mike on GitHub" title="GitHub"><svg><use href="#icon-github"></use></svg></a>
+          <a href="https://www.linkedin.com/" aria-label="Mike on LinkedIn" title="LinkedIn"><svg><use href="#icon-linkedin"></use></svg></a>
+        </div>
+        <a class="aws" href="https://aws.amazon.com/ec2/">
+          <svg aria-hidden="true"><use href="#aws-ec2"></use></svg>
+          <span><small>Favorite AWS service</small><strong>Amazon EC2</strong></span>
+        </a>
+      </section>
+    </div>
+
+    <footer>Hosted on Amazon S3 static website hosting. Seatwork 3.</footer>
+  </main>
+
+  <svg width="0" height="0" style="position: absolute" aria-hidden="true">
+    <symbol id="icon-github" viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></symbol>
+    <symbol id="icon-linkedin" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></symbol>
+    <symbol id="aws-ec2" viewBox="0 0 64 64"><g stroke="none" fill="none" fill-rule="evenodd"><g fill="#ED7100"><rect x="0" y="0" width="64" height="64"></rect></g><path d="M22,41 L41,41 L41,23 L22,23 L22,41 Z M43,23 L46,23 L46,25 L43,25 L43,27 L46,27 L46,29 L43,29 L43,31 L46,31 L46,33 L43,33 L43,36 L46,36 L46,38 L43,38 L43,40 L46,40 L46,42 L42.863,42 C42.608,42.587 42.023,43 41.344,43 L41,43 L41,46 L39,46 L39,43 L37,43 L37,46 L35,46 L35,43 L33,43 L33,46 L31,46 L31,43 L29,43 L29,46 L27,46 L27,43 L24,43 L24,46 L22,46 L22,43 L21.656,43 C20.977,43 20.392,42.587 20.137,42 L18,42 L18,40 L20,40 L20,38 L18,38 L18,36 L20,36 L20,33 L18,33 L18,31 L20,31 L20,29 L18,29 L18,27 L20,27 L20,25 L18,25 L18,23 L20,23 L20,22.656 C20,21.743 20.743,21 21.656,21 L22,21 L22,18 L24,18 L24,21 L27,21 L27,18 L29,18 L29,21 L31,21 L31,18 L33,18 L33,21 L35,21 L35,18 L37,18 L37,21 L39,21 L39,18 L41,18 L41,21 L41.344,21 C42.257,21 43,21.743 43,22.656 L43,23 Z M32,52 L12,52 L12,32 L16,32 L16,30 L11.843,30 C10.826,30 10,30.827 10,31.843 L10,52.157 C10,53.173 10.826,54 11.843,54 L32.157,54 C33.174,54 34,53.173 34,52.157 L34,48 L32,48 L32,52 Z M54,11.843 L54,32.157 C54,33.173 53.174,34 52.157,34 L48,34 L48,32 L52,32 L52,12 L32,12 L32,16 L30,16 L30,11.843 C30,10.827 30.826,10 31.843,10 L52.157,10 C53.174,10 54,10.827 54,11.843 L54,11.843 Z" fill="#FFFFFF"></path></g></symbol>
+    <symbol id="aws-lambda" viewBox="0 0 64 64"><g stroke="none" fill="none" fill-rule="evenodd"><g fill="#ED7100"><rect x="0" y="0" width="64" height="64"></rect></g><path d="M22.6794094,52 L13.5740701,52 L23.8376189,30.41 L28.3997494,39.861 L22.6794094,52 Z M24.7269406,27.667 C24.5606285,27.321 24.2120702,27.103 23.8306478,27.103 L23.8276601,27.103 C23.4452418,27.104 23.0966835,27.325 22.9323632,27.672 L11.0973143,52.569 C10.9499239,52.879 10.9708374,53.243 11.1540795,53.534 C11.3353298,53.824 11.6540117,54 11.9955989,54 L23.309802,54 C23.695208,54 24.0447622,53.777 24.2100784,53.428 L30.4044577,40.284 C30.5329264,40.01 30.5319305,39.692 30.3994783,39.42 L24.7269406,27.667 Z M51.0082382,52 L41.985557,52 L26.9547262,19.578 C26.7914017,19.226 26.4388599,19 26.0524581,19 L20.1279625,19 L20.1349337,12 L31.8146251,12 L46.7747483,44.42 C46.9380728,44.774 47.2906147,45 47.6790082,45 L51.0082382,45 L51.0082382,52 Z M52.0041191,43 L48.3143803,43 L33.354257,10.58 C33.1909326,10.226 32.8383907,10 32.450993,10 L19.1400486,10 C18.5913182,10 18.1451636,10.447 18.1441677,10.999 L18.1362006,19.999 C18.1362006,20.265 18.2407681,20.519 18.4269979,20.707 C18.6142235,20.895 18.8671772,21 19.1310857,21 L25.4170861,21 L40.4479168,53.422 C40.6112413,53.774 40.9627873,54 41.350185,54 L52.0041191,54 C52.5548412,54 53,53.552 53,53 L53,44 C53,43.448 52.5548412,43 52.0041191,43 L52.0041191,43 Z" fill="#FFFFFF"></path></g></symbol>
+    <symbol id="aws-s3" viewBox="0 0 64 64"><g stroke="none" fill="none" fill-rule="evenodd"><g fill="#7AA116"><rect x="0" y="0" width="64" height="64"></rect></g><g transform="translate(10.999800, 10.000200)" fill="#FFFFFF"><path d="M36.759,23.948 L36.993,22.131 C39.166,23.385 39.842,24.121 40.037,24.424 C39.713,24.485 38.832,24.509 36.759,23.948 L36.759,23.948 Z M19.5,11 C9.125,11 2.382,8.488 2,6.696 L2,6.511 C2.349,5.392 8.14,2 19.5,2 C30.84,2 36.632,5.381 37,6.505 L37,6.616 C36.724,8.446 29.961,11 19.5,11 L19.5,11 Z M34.818,23.362 C30.053,21.797 23.912,18.979 21.594,17.888 C21.535,16.786 20.628,15.906 19.512,15.906 C18.358,15.906 17.418,16.845 17.418,18 C17.418,19.154 18.358,20.094 19.512,20.094 C19.969,20.094 20.389,19.942 20.733,19.693 C23.132,20.822 29.619,23.798 34.558,25.38 L32.837,38.724 C32.583,40.352 27.919,42 19.497,42 C11.072,42 6.405,40.352 6.155,38.751 L2.435,9.814 C5.945,11.915 12.749,13 19.5,13 C26.25,13 33.054,11.915 36.565,9.815 L34.818,23.362 Z M39,6.5 C39,3.431 30.661,0 19.5,0 C8.339,0 -3.55271368e-15,3.431 -3.55271368e-15,6.5 L-3.55271368e-15,7.043 L4.174,39.033 C4.875,43.516 15.123,44 19.497,44 C23.869,44 34.113,43.516 34.818,39.007 L36.501,25.947 C37.778,26.279 38.812,26.456 39.616,26.455 C40.606,26.455 41.273,26.203 41.697,25.697 C42.047,25.281 42.185,24.756 42.085,24.221 C41.857,23 40.403,21.712 37.37,20.044 L37.27,19.989 L39,7.044 L39,6.5 Z"></path></g></g></symbol>
+  </svg>
+</body>
+</html>
