@@ -5,7 +5,7 @@
 
 | GitHub username | What this groupmate did |
 | --- | --- |
-| [justinecasiano](https://github.com/justinecasiano) | Fullstack Developer — structured index.html markup, linked member profiles, and managed repository submission. |
-| [ExalaJohn](https://github.com/ExalaJohn) | Frontend Developer — designed modern color theme, responsive grid layout, card hover animations, and UI enhancements. |
-| [ShiftRedux](https://github.com/ShiftRedux) | QA Tester — tested and verified external profile hyperlinks, AWS service URLs, and inline SVG icon rendering. |
-| [KennethTejam](https://github.com/KennethTejam) | QA Tester — validated mobile viewport responsiveness, confirmed zero broken links, and verified compliance with privacy rules. |
+| [justinecasiano](https://github.com/justinecasiano) | Copied baseline index.html, configured the page header for Group 2 and section IV-BCSAD, and assembled the member card markup. |
+| [ExalaJohn](https://github.com/ExalaJohn) | Customized the CSS color theme, styled card lift hover animations, and implemented the bonus "What We Are Learning" section. |
+| [ShiftRedux](https://github.com/ShiftRedux) | Configured each member's GitHub avatar, profile links, LinkedIn S3 links, and selected favorite AWS service badges from the icon library. |
+| [KennethTejam](https://github.com/KennethTejam) | Tested every hyperlink in the browser, verified mobile viewport responsiveness, and audited the page for privacy compliance. |

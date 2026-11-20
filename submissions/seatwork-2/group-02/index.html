@@ -3,337 +3,588 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Group 2 Links | ELEC3 Cloud Computing</title>
+  <title>Group 02 | ELEC3 Cloud Computing</title>
   <style>
-    /* Custom theme and design enhancements for Group 2 */
+    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
     :root {
-      --bg: #f8fafc;
-      --card: #ffffff;
-      --text: #0f172a;
-      --muted: #64748b;
-      --accent: #d97706;
-      --accent-hover: #b45309;
-      --ring: #fde68a;
-      --avatar: #fef3c7;
-      --badge-bg: #e2e8f0;
-      --badge-text: #334155;
-      --card-border: #e2e8f0;
+      --bg: #090a0f;
+      --surface: #111319;
+      --surface-hover: #161922;
+      --surface-subtle: rgba(255, 255, 255, 0.03);
+      --border: rgba(255, 255, 255, 0.08);
+      --border-hover: rgba(255, 255, 255, 0.2);
+      --text: #f8fafc;
+      --text-muted: #94a3b8;
+      --text-dim: #64748b;
+      --accent: #ff9900;
+      --accent-glow: rgba(255, 153, 0, 0.15);
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 18px;
     }
-    * { box-sizing: border-box; }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
     body {
-      margin: 0;
+      background-color: var(--bg);
+      background-image: 
+        radial-gradient(ellipse 70% 40% at 50% 0%, rgba(255, 153, 0, 0.07) 0%, transparent 70%),
+        radial-gradient(ellipse 50% 30% at 50% 100%, rgba(30, 41, 59, 0.25) 0%, transparent 60%);
+      background-attachment: fixed;
+      color: var(--text);
+      font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
       min-height: 100vh;
-      background: var(--bg);
-      color: var(--text);
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-      padding: 48px 16px;
-      line-height: 1.5;
+      padding: 64px 24px 80px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
     }
-    main { max-width: 1040px; margin: 0 auto; }
-    header { text-align: center; margin-bottom: 40px; }
-    .header-badge {
-      display: inline-block;
-      padding: 5px 16px;
-      border-radius: 9999px;
-      background: var(--badge-bg);
-      color: var(--badge-text);
-      font-size: 0.8rem;
-      font-weight: 600;
-      letter-spacing: 0.05em;
-      margin-bottom: 12px;
-      text-transform: uppercase;
+
+    main {
+      max-width: 1040px;
+      margin: 0 auto;
     }
-    header h1 {
-      margin: 0 0 8px;
-      color: var(--accent);
-      font-size: 2.5rem;
-      font-weight: 700;
-    }
-    header .section-tag {
-      margin: 0 0 6px;
-      font-weight: 600;
-      font-size: 1.1rem;
-      color: var(--text);
-    }
-    header .motto {
-      margin: 0;
-      color: var(--muted);
-      font-style: italic;
-      font-size: 0.95rem;
-    }
-    .members {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 24px;
-      margin-bottom: 44px;
-    }
-    .member {
-      background: var(--card);
-      border: 1px solid var(--card-border);
-      border-radius: 14px;
-      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
-      padding: 28px 22px;
+
+    /* Minimalist Header */
+    header {
       text-align: center;
+      margin-bottom: 56px;
+    }
+
+    .header-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 5px 14px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border);
+      border-radius: 9999px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      letter-spacing: 0.04em;
+      margin-bottom: 20px;
+    }
+
+    .status-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #10b981;
+      box-shadow: 0 0 8px #10b981;
+    }
+
+    header h1 {
+      font-size: 2.75rem;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      color: var(--text);
+      line-height: 1.15;
+      margin-bottom: 12px;
+    }
+
+    .header-subtitle {
+      color: var(--text-muted);
+      font-size: 1.05rem;
+      font-weight: 400;
+      max-width: 520px;
+      margin: 0 auto;
+    }
+
+    /* Grid Layout */
+    .members-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 20px;
+      margin-bottom: 56px;
+    }
+
+    /* Minimalist Member Card */
+    .member-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 28px 22px 24px;
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
-      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
-    }
-    .member:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 16px 32px rgba(0, 0, 0, 0.1);
-      border-color: var(--ring);
-    }
-    .avatar {
-      width: 120px;
-      height: 120px;
-      margin: 0 auto 18px;
-      border-radius: 50%;
-      border: 4px solid var(--ring);
-      background: var(--avatar);
-      color: var(--accent);
-      display: flex;
       align-items: center;
-      justify-content: center;
-      font-size: 2.2rem;
-      font-weight: 700;
-      overflow: hidden;
+      text-align: center;
+      transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease;
+      position: relative;
     }
-    .avatar img {
+
+    .member-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--border-hover);
+      background: var(--surface-hover);
+      box-shadow: 0 16px 36px -12px rgba(0, 0, 0, 0.6);
+    }
+
+    /* Avatar */
+    .avatar-box {
+      width: 82px;
+      height: 82px;
+      border-radius: 50%;
+      padding: 3px;
+      border: 1px solid var(--border);
+      background: var(--surface-subtle);
+      margin-bottom: 18px;
+      transition: border-color 0.25s ease;
+    }
+
+    .member-card:hover .avatar-box {
+      border-color: rgba(255, 153, 0, 0.4);
+    }
+
+    .avatar-img {
       width: 100%;
       height: 100%;
+      border-radius: 50%;
       object-fit: cover;
       display: block;
+      background: #1e293b;
     }
-    .member h2 {
-      margin: 0 0 8px;
+
+    .member-name {
       font-size: 1.35rem;
-      font-weight: 600;
+      font-weight: 700;
       color: var(--text);
+      letter-spacing: -0.02em;
+      margin-bottom: 4px;
     }
-    .member .bio {
-      margin: 0 0 14px;
-      color: var(--muted);
-      font-style: italic;
-      line-height: 1.5;
-      font-size: 0.9rem;
+
+    .member-role {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent);
+      margin-bottom: 14px;
+    }
+
+    .member-bio {
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      line-height: 1.55;
+      margin-bottom: 22px;
       flex-grow: 1;
     }
-    .member .role {
-      margin: 0 0 16px;
-      font-size: 0.8rem;
-      font-weight: 700;
-      letter-spacing: 0.05em;
-      color: var(--accent);
-      text-transform: uppercase;
-    }
-    .social {
+
+    /* Social Action Buttons */
+    .social-row {
       display: flex;
-      justify-content: center;
-      gap: 12px;
-      margin-bottom: 18px;
-    }
-    .social a {
-      width: 42px;
-      height: 42px;
-      border-radius: 50%;
-      display: flex;
+      gap: 10px;
       align-items: center;
       justify-content: center;
-      color: var(--text);
-      border: 2px solid var(--ring);
-      background: var(--card);
-      transition: all 0.2s ease;
-      text-decoration: none;
+      margin-bottom: 22px;
+      width: 100%;
     }
-    .social a:hover {
-      border-color: var(--accent);
-      color: var(--accent);
-      transform: translateY(-2px);
-      box-shadow: 0 4px 10px rgba(217, 119, 6, 0.2);
-    }
-    .social svg {
-      width: 20px;
-      height: 20px;
-      fill: currentColor;
-    }
-    .aws {
-      display: flex;
+
+    .social-link {
+      width: 36px;
+      height: 36px;
+      border-radius: var(--radius-sm);
+      background: var(--surface-subtle);
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      display: inline-flex;
       align-items: center;
-      gap: 12px;
-      padding: 10px 12px;
-      border-radius: 10px;
-      background: var(--bg);
-      color: var(--text);
+      justify-content: center;
       text-decoration: none;
-      text-align: left;
-      border: 1px solid transparent;
-      transition: all 0.2s ease;
+      transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
     }
-    .aws:hover {
-      outline: 2px solid var(--accent);
-      background: #ffffff;
-      transform: translateY(-2px);
-    }
-    .aws svg {
-      width: 40px;
-      height: 40px;
-      flex-shrink: 0;
-      border-radius: 6px;
-    }
-    .aws small {
+
+    .social-link svg {
+      width: 16px;
+      height: 16px;
       display: block;
-      color: var(--muted);
-      font-size: 0.75rem;
     }
-    .aws strong {
-      font-size: 0.95rem;
-      color: var(--text);
+
+    .social-link:hover {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(255, 255, 255, 0.25);
+      color: #ffffff;
+      transform: translateY(-2px);
     }
-    .learning-section {
-      background: var(--card);
-      border: 1px solid var(--card-border);
-      border-radius: 14px;
-      padding: 28px 24px;
-      margin-bottom: 36px;
-      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+
+    /* Minimal Favorite AWS Service Card */
+    .aws-badge {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 14px;
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      text-decoration: none;
+      color: inherit;
+      transition: background-color 0.2s ease, border-color 0.2s ease;
     }
-    .learning-section h2 {
-      margin: 0 0 18px;
-      text-align: center;
-      font-size: 1.35rem;
+
+    .aws-badge:hover {
+      background: rgba(255, 255, 255, 0.05);
+      border-color: rgba(255, 153, 0, 0.35);
+    }
+
+    .aws-badge-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 6px;
+      overflow: hidden;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .aws-badge-icon svg {
+      width: 100%;
+      height: 100%;
+    }
+
+    .aws-badge-info {
+      text-align: left;
+      flex-grow: 1;
+      overflow: hidden;
+    }
+
+    .aws-badge-label {
+      display: block;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.62rem;
+      font-weight: 500;
+      color: var(--text-dim);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      line-height: 1;
+      margin-bottom: 3px;
+    }
+
+    .aws-badge-name {
+      display: block;
+      font-size: 0.88rem;
       font-weight: 600;
-      color: var(--accent);
+      color: var(--text);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
+
+    .aws-badge-arrow {
+      color: var(--text-dim);
+      display: flex;
+      align-items: center;
+      transition: color 0.2s ease, transform 0.2s ease;
+    }
+
+    .aws-badge-arrow svg {
+      width: 14px;
+      height: 14px;
+    }
+
+    .aws-badge:hover .aws-badge-arrow {
+      color: var(--accent);
+      transform: translate(2px, -2px);
+    }
+
+    /* Minimalist Competencies Section */
+    .learning-section {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 36px 32px;
+      margin-bottom: 56px;
+    }
+
+    .learning-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 28px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .learning-header h2 {
+      font-size: 1.4rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    .learning-header .learning-tag {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      color: var(--text-dim);
+    }
+
     .learning-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 18px;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
     }
-    .learning-card {
-      background: var(--bg);
-      padding: 16px 18px;
-      border-radius: 10px;
-      border-left: 4px solid var(--accent);
+
+    .learning-item {
+      text-align: left;
     }
-    .learning-card h3 {
-      margin: 0 0 6px;
-      font-size: 1rem;
+
+    .learning-num {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: var(--accent);
+      margin-bottom: 8px;
+      letter-spacing: 0.04em;
+    }
+
+    .learning-item h3 {
+      font-size: 1.05rem;
       font-weight: 600;
       color: var(--text);
+      margin-bottom: 6px;
     }
-    .learning-card p {
-      margin: 0;
+
+    .learning-item p {
       font-size: 0.85rem;
-      color: var(--muted);
-      line-height: 1.5;
+      color: var(--text-muted);
+      line-height: 1.55;
     }
+
+    /* Minimalist Footer */
     footer {
       text-align: center;
-      color: var(--muted);
-      font-size: 0.85rem;
-      margin-top: 32px;
+      border-top: 1px solid var(--border);
+      padding-top: 32px;
+    }
+
+    .footer-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      margin-bottom: 10px;
+    }
+
+    .footer-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+    }
+
+    .footer-desc {
+      font-size: 0.82rem;
+      color: var(--text-dim);
+    }
+
+    @media (max-width: 640px) {
+      body {
+        padding: 40px 16px 56px;
+      }
+      header h1 {
+        font-size: 2.2rem;
+      }
+      .learning-section {
+        padding: 24px 20px;
+      }
     }
   </style>
 </head>
 <body>
   <main>
     <header>
-      <span class="header-badge">ELEC3 · Cloud Computing</span>
-      <h1>Meet Group 2</h1>
-      <p class="section-tag">IV-BCSAD</p>
-      <p class="motto">"Architecting scalable, resilient web applications on AWS Cloud"</p>
+      <div class="header-pill">
+        <span class="status-dot"></span>
+        <span>IV-BCSAD &middot; ELEC3 CLOUD COMPUTING</span>
+      </div>
+      <h1>Group 02</h1>
+      <p class="header-subtitle">Distributed systems and cloud architecture on Amazon Web Services.</p>
     </header>
 
-    <div class="members">
-      <section class="member">
-        <div class="avatar">
-          <img src="https://github.com/justinecasiano.png" alt="Justine">
+    <div class="members-grid">
+      <!-- Member 1: Justine -->
+      <section class="member-card">
+        <div class="avatar-box">
+          <img class="avatar-img" src="https://github.com/justinecasiano.png" alt="Justine">
         </div>
-        <h2>Justine</h2>
-        <p class="bio">Coordinates full-stack architectures and cloud-native integrations.</p>
-        <p class="role">FULLSTACK DEVELOPER</p>
-        <div class="social">
-          <a href="https://github.com/justinecasiano" aria-label="Justine on GitHub" title="GitHub"><svg><use href="#icon-github"></use></svg></a>
-          <a href="https://aws.amazon.com/s3/" aria-label="Justine on LinkedIn" title="LinkedIn"><svg><use href="#icon-linkedin"></use></svg></a>
+        <h2 class="member-name">Justine</h2>
+        <span class="member-role">Fullstack Developer</span>
+        <p class="member-bio">Coordinates cloud-native web architectures, serverless logic, and system integration.</p>
+        
+        <div class="social-row">
+          <a class="social-link" href="https://github.com/justinecasiano" aria-label="Justine on GitHub" title="GitHub">
+            <svg><use href="#icon-github"></use></svg>
+          </a>
+          <a class="social-link" href="https://aws.amazon.com/s3/" aria-label="Justine on LinkedIn" title="LinkedIn">
+            <svg><use href="#icon-linkedin"></use></svg>
+          </a>
+          <a class="social-link" href="https://aws.amazon.com/s3/" aria-label="Justine on X" title="X (Twitter)">
+            <svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
         </div>
-        <a class="aws" href="https://aws.amazon.com/s3/">
-          <svg aria-hidden="true"><use href="#aws-s3"></use></svg>
-          <span><small>Favorite AWS service</small><strong>Amazon S3</strong></span>
+
+        <a class="aws-badge" href="https://aws.amazon.com/s3/">
+          <div class="aws-badge-icon">
+            <svg aria-hidden="true"><use href="#aws-s3"></use></svg>
+          </div>
+          <div class="aws-badge-info">
+            <span class="aws-badge-label">Favorite AWS Service</span>
+            <strong class="aws-badge-name">Amazon S3</strong>
+          </div>
+          <div class="aws-badge-arrow" aria-hidden="true">
+            <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.22 14.78a.75.75 0 001.06 0l7.22-7.22v5.69a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75h-7.5a.75.75 0 000 1.5h5.69l-7.22 7.22a.75.75 0 000 1.06z" clip-rule="evenodd" /></svg>
+          </div>
         </a>
       </section>
 
-      <section class="member">
-        <div class="avatar">
-          <img src="https://github.com/ExalaJohn.png" alt="Arvie">
+      <!-- Member 2: Arvie -->
+      <section class="member-card">
+        <div class="avatar-box">
+          <img class="avatar-img" src="https://github.com/ExalaJohn.png" alt="Arvie">
         </div>
-        <h2>Arvie</h2>
-        <p class="bio">Builds responsive, accessible web interfaces and user experiences.</p>
-        <p class="role">FRONTEND DEVELOPER</p>
-        <div class="social">
-          <a href="https://github.com/ExalaJohn" aria-label="Arvie on GitHub" title="GitHub"><svg><use href="#icon-github"></use></svg></a>
-          <a href="https://aws.amazon.com/s3/" aria-label="Arvie on LinkedIn" title="LinkedIn"><svg><use href="#icon-linkedin"></use></svg></a>
+        <h2 class="member-name">Arvie</h2>
+        <span class="member-role">Frontend Developer</span>
+        <p class="member-bio">Crafts responsive, accessible web interfaces and fluid client-side cloud dashboards.</p>
+        
+        <div class="social-row">
+          <a class="social-link" href="https://github.com/ExalaJohn" aria-label="Arvie on GitHub" title="GitHub">
+            <svg><use href="#icon-github"></use></svg>
+          </a>
+          <a class="social-link" href="https://aws.amazon.com/s3/" aria-label="Arvie on LinkedIn" title="LinkedIn">
+            <svg><use href="#icon-linkedin"></use></svg>
+          </a>
+          <a class="social-link" href="https://aws.amazon.com/s3/" aria-label="Arvie on X" title="X (Twitter)">
+            <svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
         </div>
-        <a class="aws" href="https://aws.amazon.com/cloudfront/">
-          <svg aria-hidden="true"><use href="#aws-cloudfront"></use></svg>
-          <span><small>Favorite AWS service</small><strong>Amazon CloudFront</strong></span>
+
+        <a class="aws-badge" href="https://aws.amazon.com/cloudfront/">
+          <div class="aws-badge-icon">
+            <svg aria-hidden="true"><use href="#aws-cloudfront"></use></svg>
+          </div>
+          <div class="aws-badge-info">
+            <span class="aws-badge-label">Favorite AWS Service</span>
+            <strong class="aws-badge-name">Amazon CloudFront</strong>
+          </div>
+          <div class="aws-badge-arrow" aria-hidden="true">
+            <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.22 14.78a.75.75 0 001.06 0l7.22-7.22v5.69a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75h-7.5a.75.75 0 000 1.5h5.69l-7.22 7.22a.75.75 0 000 1.06z" clip-rule="evenodd" /></svg>
+          </div>
         </a>
       </section>
 
-      <section class="member">
-        <div class="avatar">
-          <img src="https://github.com/ShiftRedux.png" alt="Cede">
+      <!-- Member 3: Cede -->
+      <section class="member-card">
+        <div class="avatar-box">
+          <img class="avatar-img" src="https://github.com/ShiftRedux.png" alt="Cede">
         </div>
-        <h2>Cede</h2>
-        <p class="bio">Tests link integrity, monitors uptime, and verifies cloud deployments.</p>
-        <p class="role">QA TESTER</p>
-        <div class="social">
-          <a href="https://github.com/ShiftRedux" aria-label="Cede on GitHub" title="GitHub"><svg><use href="#icon-github"></use></svg></a>
-          <a href="https://aws.amazon.com/s3/" aria-label="Cede on LinkedIn" title="LinkedIn"><svg><use href="#icon-linkedin"></use></svg></a>
+        <h2 class="member-name">Cede</h2>
+        <span class="member-role">QA Tester</span>
+        <p class="member-bio">Audits cross-platform performance, monitors cloud metrics, and verifies link resilience.</p>
+        
+        <div class="social-row">
+          <a class="social-link" href="https://github.com/ShiftRedux" aria-label="Cede on GitHub" title="GitHub">
+            <svg><use href="#icon-github"></use></svg>
+          </a>
+          <a class="social-link" href="https://aws.amazon.com/s3/" aria-label="Cede on LinkedIn" title="LinkedIn">
+            <svg><use href="#icon-linkedin"></use></svg>
+          </a>
+          <a class="social-link" href="https://aws.amazon.com/s3/" aria-label="Cede on X" title="X (Twitter)">
+            <svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
         </div>
-        <a class="aws" href="https://aws.amazon.com/cloudwatch/">
-          <svg aria-hidden="true"><use href="#aws-cloudwatch"></use></svg>
-          <span><small>Favorite AWS service</small><strong>Amazon CloudWatch</strong></span>
+
+        <a class="aws-badge" href="https://aws.amazon.com/cloudwatch/">
+          <div class="aws-badge-icon">
+            <svg aria-hidden="true"><use href="#aws-cloudwatch"></use></svg>
+          </div>
+          <div class="aws-badge-info">
+            <span class="aws-badge-label">Favorite AWS Service</span>
+            <strong class="aws-badge-name">Amazon CloudWatch</strong>
+          </div>
+          <div class="aws-badge-arrow" aria-hidden="true">
+            <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.22 14.78a.75.75 0 001.06 0l7.22-7.22v5.69a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75h-7.5a.75.75 0 000 1.5h5.69l-7.22 7.22a.75.75 0 000 1.06z" clip-rule="evenodd" /></svg>
+          </div>
         </a>
       </section>
 
-      <section class="member">
-        <div class="avatar">
-          <img src="https://github.com/KennethTejam.png" alt="Kenneth">
+      <!-- Member 4: Kenneth -->
+      <section class="member-card">
+        <div class="avatar-box">
+          <img class="avatar-img" src="https://github.com/KennethTejam.png" alt="Kenneth">
         </div>
-        <h2>Kenneth</h2>
-        <p class="bio">Validates cross-browser layout standards and enforces quality assurance.</p>
-        <p class="role">QA TESTER</p>
-        <div class="social">
-          <a href="https://github.com/KennethTejam" aria-label="Kenneth on GitHub" title="GitHub"><svg><use href="#icon-github"></use></svg></a>
-          <a href="https://aws.amazon.com/s3/" aria-label="Kenneth on LinkedIn" title="LinkedIn"><svg><use href="#icon-linkedin"></use></svg></a>
+        <h2 class="member-name">Kenneth</h2>
+        <span class="member-role">QA Tester</span>
+        <p class="member-bio">Ensures strict adherence to privacy, responsive layout specifications, and cloud security standards.</p>
+        
+        <div class="social-row">
+          <a class="social-link" href="https://github.com/KennethTejam" aria-label="Kenneth on GitHub" title="GitHub">
+            <svg><use href="#icon-github"></use></svg>
+          </a>
+          <a class="social-link" href="https://aws.amazon.com/s3/" aria-label="Kenneth on LinkedIn" title="LinkedIn">
+            <svg><use href="#icon-linkedin"></use></svg>
+          </a>
+          <a class="social-link" href="https://aws.amazon.com/s3/" aria-label="Kenneth on X" title="X (Twitter)">
+            <svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
         </div>
-        <a class="aws" href="https://aws.amazon.com/iam/">
-          <svg aria-hidden="true"><use href="#aws-iam"></use></svg>
-          <span><small>Favorite AWS service</small><strong>AWS IAM</strong></span>
+
+        <a class="aws-badge" href="https://aws.amazon.com/iam/">
+          <div class="aws-badge-icon">
+            <svg aria-hidden="true"><use href="#aws-iam"></use></svg>
+          </div>
+          <div class="aws-badge-info">
+            <span class="aws-badge-label">Favorite AWS Service</span>
+            <strong class="aws-badge-name">AWS IAM</strong>
+          </div>
+          <div class="aws-badge-arrow" aria-hidden="true">
+            <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.22 14.78a.75.75 0 001.06 0l7.22-7.22v5.69a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75h-7.5a.75.75 0 000 1.5h5.69l-7.22 7.22a.75.75 0 000 1.06z" clip-rule="evenodd" /></svg>
+          </div>
         </a>
       </section>
     </div>
 
+    <!-- Extra Section: What We Are Learning -->
     <section class="learning-section">
-      <h2>What We Are Learning</h2>
+      <div class="learning-header">
+        <h2>What We Are Learning</h2>
+        <span class="learning-tag">SEATWORK 2 &middot; S3 FOUNDATIONS</span>
+      </div>
       <div class="learning-grid">
-        <div class="learning-card">
-          <h3>Cloud Storage & Hosting</h3>
-          <p>Configuring Amazon S3 buckets, website endpoints, and access policies for static websites.</p>
+        <div class="learning-item">
+          <div class="learning-num">01 / HOSTING</div>
+          <h3>Static Web on S3</h3>
+          <p>Configuring Amazon S3 buckets, website endpoints, CORS policies, and global asset distribution for serverless web hosting.</p>
         </div>
-        <div class="learning-card">
-          <h3>Modern Web Layouts</h3>
-          <p>Creating responsive single-file web pages with CSS Grid, custom color themes, and SVG sprite systems.</p>
+        <div class="learning-item">
+          <div class="learning-num">02 / ARCHITECTURE</div>
+          <h3>Single-File Design</h3>
+          <p>Authoring high-performance single-file web pages with CSS custom properties, responsive grids, and embedded SVG sprite systems.</p>
         </div>
-        <div class="learning-card">
-          <h3>Quality & Security</h3>
-          <p>Verifying link reliability, practicing least-privilege IAM configurations, and protecting user privacy.</p>
+        <div class="learning-item">
+          <div class="learning-num">03 / GOVERNANCE</div>
+          <h3>Security & Compliance</h3>
+          <p>Enforcing least-privilege IAM access policies, preserving zero-PII privacy compliance, and assuring cross-browser fidelity.</p>
         </div>
       </div>
     </section>
 
-    <footer>Hosted on Amazon S3 static website hosting · Seatwork 3</footer>
+    <footer>
+      <div class="footer-pill">
+        <span class="footer-dot"></span>
+        <span>Amazon S3 Static Hosting Ready</span>
+      </div>
+      <p class="footer-desc">University of Makati &middot; College of Computing and Information Sciences &middot; Section IV-BCSAD</p>
+    </footer>
   </main>
 
   <!-- Icon library. Your cards use these icons by ID. You do not need to change anything below. -->
